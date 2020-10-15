@@ -1,6 +1,7 @@
 <template>
   <div class="hello">
     <h1>{{ msg }}</h1>
+    <input type="text" ref="inputRef" placeholder="ref focus">
   </div>
 </template>
 
@@ -9,8 +10,17 @@ import { Component, Prop, Vue } from 'vue-property-decorator';
 
 @Component
 export default class HelloWorld extends Vue {
+  $refs!: {
+    inputRef: HTMLInputElement;
+  };
+
   @Prop({ type: String }) msg!: string;
+
+  mounted() {
+    this.$refs.inputRef.focus();
+  }
 }
+
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
