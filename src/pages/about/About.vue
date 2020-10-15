@@ -1,6 +1,7 @@
 <template>
   <div class="about">
     <h1>This is an about page</h1>
+    <button @click="goBack">go back</button>
   </div>
 </template>
 
@@ -17,7 +18,7 @@ export default class About extends Vue {
 
   private beforeRouteEnter(to: Route, from: Route, next: () => void): void {
     console.log('beforeRouteEnter', to, from, next);
-    next(); // 没有next将不会进入路由内部，跟vue文档用法一致
+    next();
   }
 
   private beforeRouteUpdate(to: Route, from: Route, next: () => void): void {
@@ -28,6 +29,10 @@ export default class About extends Vue {
   private beforeRouteLeave(to: Route, from: Route, next: () => void): void {
     console.log('beforeRouteLeave');
     next();
+  }
+
+  private goBack() {
+    this.$router.back();
   }
 }
 

@@ -4,6 +4,7 @@ import router from './router';
 import store from './store';
 
 import { Component } from 'vue-property-decorator';
+import { Route } from 'vue-router';
 
 Component.registerHooks([
   'beforeRouteEnter',
@@ -13,6 +14,10 @@ Component.registerHooks([
 
 Vue.config.productionTip = false;
 
+router.beforeEach((to: Route, from: Route, next: () => void) => {
+  console.log(to, from);
+  next();
+});
 new Vue({
   router,
   store,
