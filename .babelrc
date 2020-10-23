@@ -1,6 +1,7 @@
 {
   "presets": ["@babel/env", "@babel/typescript", "@vue/babel-preset-jsx"],
   "plugins": [
+    "@babel/plugin-transform-runtime",
     "@babel/proposal-numeric-separator",
     [
       "@babel/proposal-decorators",
